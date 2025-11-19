@@ -1,7 +1,7 @@
-📋 Descrição do Projeto
+# 📋 Descrição do Projeto
 Este projeto tem como objetivo a criação de um site especializado na venda de contas e itens de jogos, oferecendo uma plataforma independente e personalizada para o fornecedor. A loja virtual busca melhorar a experiência de mercado do fornecedor, facilitando vendas, formas de pagamento e comunicação, sem depender de plataformas externas.
 
-🎯 Objetivos
+## 🎯 Objetivos
 Facilitar as vendas através de uma interface intuitiva
 
 Oferecer múltiplas formas de pagamento seguras
@@ -12,14 +12,14 @@ Proporcionar autonomia com uma plataforma independente
 
 Otimizar a experiência do usuário com design clean e funcional
 
-👥 Público-Alvo
+## 👥 Público-Alvo
 Jovens e adultos gamers
 
 Entusiastas de jogos que buscam melhorar sua experiência
 
 Colecionadores de itens especiais em jogos
 
-✨ Funcionalidades Principais
+## ✨ Funcionalidades Principais
 🛍️ Catálogo de Produtos
 Catálogo extenso e organizado
 
@@ -29,22 +29,19 @@ Sistema de busca eficiente
 
 Detalhes completos dos produtos
 
-💳 Sistema de Pagamento
+## 💳 Sistema de Pagamento
 Múltiplas formas de pagamento
 
 Transações seguras
 
 Processamento confiável
 
-🛡️ Segurança
+## 🛡️ Segurança
 Sistema de segurança robusto
 
 Proteção de dados do usuário
 
 Prevenção contra erros e falhas
-
-📞 Suporte ao Cliente
-Canal de atendimento dedicado
 
 Resolução rápida de dúvidas
 
