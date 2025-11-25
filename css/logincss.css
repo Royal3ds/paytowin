@@ -12,6 +12,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background-image: url("../images/fundo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
 }
 
 .principal {
@@ -108,22 +115,17 @@ input:focus {
 }
 
 button {
-  width: 100%;
+   display: block;
+  margin: 10px auto;
+  width: 200px;
+  padding: 10px 0;
   border: none;
-  cursor: pointer;
-  background-color: #5865F2;
-  padding: 8px 8px;
   border-radius: 7px;
-  border: none;
-  width: 95%;
-
-  position: relative;
-  bottom: 5px;
-
-  font-size: 15px; 
+  background-color: #9900ff9f;
+  cursor: pointer;
+  font-size: 15px;
   font-weight: 500;
 }
-
 button:hover{
   opacity: 80%;
   transition: 0.4s;
