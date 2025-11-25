@@ -4,15 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PaytoWin</title>
-        <link rel="stylesheet" href="css\logincss.css">
-        <link rel="icon" href="" type="png" sizes="64x64">
+        <link rel="stylesheet" href="css/logincss.css">
+        <link rel="icon" href="images/favicon.png" type="image/png" sizes="64x64"> 
     </head>
 
 <body>
-        <div class="principal">
+    <div class="principal">
 
-          <div class="form">
-            <form action="" method="post">
+        <div class="form">
+            <form action="/login" method="post"> 
               
                 <div class="titulo">
                     <h2>Boas-vindas de volta!</h2>
@@ -20,31 +20,28 @@
                 </div>
               
                 <div class="caixas">
-                  <div class="info">
-                    <label for="login">E-MAIL</label>
-                  </div>
-                <input type="email" id="email" name="usuario_login" />
+                    <div class="info">
+                        <label for="email">E-MAIL</label>
+                    </div>
+                    <input type="email" id="email" name="usuario_email" required /> 
 
-                  <div class="info">
-                    <label for="senha">SENHA</label><br>
-                  </div>
-                <input type="password" id="senha" name="usuario_senha" />
-              </div>
+                    <div class="info">
+                        <label for="senha">SENHA</label><br>
+                    </div>
+                    <input type="password" id="senha" name="usuario_senha" required />
+                </div>
               
-                <a href="" style="color: #02a2f2" class="esqsenha">Esqueceu sua senha?</a>  
+                <a href="/recuperar-senha" style="color: #02a2f2" class="esqsenha">Esqueceu sua senha?</a>  
 
                 <div class="button">
-                  <button type="submit">Entrar</button>
+                    <button type="submit">Entrar</button>
                 </div>
-              </form>
+            </form>
 
-              <div class="registro">
+            <div class="registro">
                 <p>Precisando de uma conta? <a href="cconta.html" style="color: #02a2f2" class="ajuda">Registre-se</a></p> 
-              </div>
             </div>
-        
         </div>
-
-
+    </div>
 </body> 
 </html>
