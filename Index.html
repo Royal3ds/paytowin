@@ -1,11 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Produtos - Pay to win</title>
 </head>
 <body>
-    
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <h1 class="logo">Pay to win</h1>
+
+        <nav class="nav-actions">
+            <input type="text" class="input-search" placeholder="Pesquisar produtos...">
+        </nav>
+    </header>
+
+    <main class="products-container">
+
+        <!-- Filtros -->
+        <section class="filters">
+
+            <div class="filter-group">
+                <label for="categoria">Categoria:</label>
+                <select id="categoria" class="select">
+                    <option value="">Todas</option>
+                    <option value="contas">Contas</option>
+                    <option value="itens">Itens</option>
+                    <option value="servicos">Serviços</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="jogo">Jogo:</label>
+                <select id="jogo" class="select">
+                    <option value="">Todos</option>
+                    <option value="lol">League of Legends</option>
+                    <option value="valorant">Valorant</option>
+                    <option value="fifa">FIFA</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="ordenar">Ordenar por:</label>
+                <select id="ordenar" class="select">
+                    <option value="relevancia">Relevância</option>
+                    <option value="preco_asc">Menor preço</option>
+                    <option value="preco_desc">Maior preço</option>
+                </select>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- Lista de produtos -->
+        <section class="products-grid">
+
+            <article class="product-card">
+                <h3 class="product-title">Conta Platina LoL</h3>
+                <p class="product-info">Jogo: League of Legends</p>
+                <p class="product-info">Categoria: Contas</p>
+                <p class="product-price">R$ 35,00</p>
+                <div class="product-actions">
+                    <button class="btn-primary">Ver</button>
+                    <button class="btn-secondary">Comprar</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <h3 class="product-title">Skin Épica Valorant</h3>
+                <p class="product-info">Jogo: Valorant</p>
+                <p class="product-info">Categoria: Itens</p>
+                <p class="product-price">R$ 12,50</p>
+                <div class="product-actions">
+                    <button class="btn-primary">Ver</button>
+                    <button class="btn-secondary">Comprar</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <h3 class="product-title">Conta Ouro FIFA</h3>
+                <p class="product-info">Jogo: FIFA</p>
+                <p class="product-info">Categoria: Contas</p>
+                <p class="product-price">R$ 20,00</p>
+                <div class="product-actions">
+                    <button class="btn-primary">Ver</button>
+                    <button class="btn-secondary">Comprar</button>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
 </body>
 </html>
