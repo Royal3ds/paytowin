@@ -130,3 +130,39 @@ button:hover{
   opacity: 80%;
   transition: 0.4s;
 }
+
+/* cabeçalho */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #b100ff;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-register {
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    background-color: #b100ff;
+    transition: 0.3s;
+    color: white;
+}
+
+.btn-register:hover {
+    background-color: #ca00ff;
+}

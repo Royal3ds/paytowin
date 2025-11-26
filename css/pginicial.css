@@ -107,6 +107,20 @@ body {
 
 /*              PRODUTOS          */
 
+.produto1, 
+.produto2,
+.produto3 {
+    width: 100%;               /* ocupa toda a largura do card */
+    height: 200px;             /* altura fixa (pode ajustar) */
+    object-fit: cover;         /* corta a imagem sem distorcer */
+    border-radius: 10px;       /* opcional, para deixar mais bonito */
+    margin-bottom: 12px;       /* espaço entre a imagem e o texto */
+
+    object-position: center;   /* garante alinhamento central */
+    display: block;            /* evita espaçamentos invisíveis */
+}
+
+
 .products-grid {
     margin-top: 25px;
     display: grid;
@@ -144,6 +158,12 @@ body {
     font-size: 18px;
     font-weight: bold;
 }
+
+.products-container {
+    max-width: 1100px; /* tamanho da área total */
+    margin: 0 auto;    /* centraliza na página */
+}
+
 
 
 /*       BOTÕES DOS PRODUTOS      */
