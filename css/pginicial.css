@@ -1,0 +1,182 @@
+
+/* GLOBAL*/
+
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    color: white;
+    text-decoration: none;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #0e0e0e;
+    padding: 15px;
+}
+
+
+
+/*HEADER*/
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #b100ff;
+}
+
+.input-search {
+    padding: 8px 15px;
+    width: 250px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: #1e1f22;
+}
+
+
+
+/*      BOTÕES DE AUTENTICAÇÃO    */
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-login,
+.btn-register {
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    background-color: #323339;
+    transition: 0.3s;
+}
+
+.btn-register {
+    background-color: #b100ff;
+}
+
+.btn-login:hover {
+    background-color: #505050;
+}
+
+.btn-register:hover {
+    background-color: #ca00ff;
+}
+
+/*              FILTROS           */
+
+.filters {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.filter-group label {
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 80%;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.select {
+    background-color: #1e1f22;
+    padding: 8px;
+    width: 180px;
+    border-radius: 6px;
+    border: 1px solid #3e3f44;
+    outline: none;
+}
+
+/*              PRODUTOS          */
+
+.products-grid {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
+}
+
+.product-card {
+    background-color: #1c1c1c;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #323339;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    border-color: #b100ff;
+    transform: scale(1.02);
+}
+
+.product-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-info {
+    opacity: 75%;
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+.product-price {
+    color: #b100ff;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/*       BOTÕES DOS PRODUTOS      */
+
+.product-actions {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #9900ff9f;
+}
+
+.btn-secondary {
+    background-color: #3e3f44;
+}
+
+.btn-primary:hover {
+    opacity: 80%;
+}
+
+.btn-secondary:hover {
+    opacity: 80%;
+}
