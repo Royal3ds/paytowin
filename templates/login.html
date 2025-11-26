@@ -1,48 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PaytoWin</title>
+        <title>PaytoWin - Login</title>
         <link rel="stylesheet" href="static\css\logincss.css">
     </head>
 
 <body>
 
     <div class="principal">
-
-        <div class="form">
-            <form action="/login" method="post"> 
-              
-                <div class="titulo">
-                    <h2>Boas-vindas de volta!</h2>
-                    <p class="subtitulo">Estamos muito animados em te ver novamente!<br>
-                    Realize o login para continuar comprando!</p>
-                </div>
-              
-                <div class="caixas">
-                    <div class="info">
-                        <label for="email">E-MAIL</label>
-                    </div>
-                    <input type="email" id="email" name="usuario_email" required /> 
-
-                    <div class="info">
-                        <label for="senha">SENHA</label><br>
-                    </div>
-                    <input type="password" id="senha" name="usuario_senha" required />
-                </div>
-              
-                <a href="/recuperar-senha" style="color: #9900ff9f" class="esqsenha">Esqueceu sua senha?</a>  
-
-                <div class="button">
-                    <button type="submit">Entrar</button>
-                </div>
-            </form>
-
-            <div class="registro">
-                <p>Precisando de uma conta? <a href="{{ url_for('cadastro') }}" style="color: #9900ff9f" class="ajuda">Registre-se</a></p> 
-            </div>
+        <!-- Título e Subtítulo -->
+        <div class="titulo">
+            <h2>Boas-vindas de volta!</h2>
+            <p class="subtitulo">Estamos muito animados em te ver novamente!<br>
+            Realize o login para continuar comprando!</p>
         </div>
+
+        <form action="/login" method="post" class="form"> 
+            
+            <!-- Campo E-MAIL (Usando .form-group) -->
+            <div class="form-group">
+                <label for="email">E-MAIL</label>
+                <input type="email" id="email" name="usuario_email" required placeholder="seu.email@exemplo.com" /> 
+            </div>
+
+            <!-- Campo SENHA (Usando .form-group) -->
+            <div class="form-group">
+                <label for="senha">SENHA</label>
+                <input type="password" id="senha" name="usuario_senha" required placeholder="Mínimo 6 caracteres" />
+            </div>
+            
+            <!-- Link Esqueceu a Senha -->
+            <a href="/recuperar-senha" class="esqsenha">Esqueceu sua senha?</a>  
+
+            <!-- Botão Entrar -->
+            <div class="button">
+                <button type="submit">Entrar</button>
+            </div>
+            
+        </form>
+
+        <!-- Link de Registro -->
+        <div class="registro">
+            <p>Precisando de uma conta? <a href="{{ url_for('cadastro') }}" class="ajuda">Registre-se</a></p> 
+        </div>
+        
     </div>
 </body> 
 </html>

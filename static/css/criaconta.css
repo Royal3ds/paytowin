@@ -1,174 +1,274 @@
+/* Definição de Variáveis e Reset Básico */
+:root {
+    --cor-primaria: #b100ff; /* Roxo principal */
+    --cor-primaria-hover: #ca00ff;
+    --cor-fundo-card: #323339;
+    --cor-fundo-input: #1e1f22;
+    --cor-borda-input: #3e3f44;
+    --cor-texto-claro: #ffffff;
+    --cor-texto-label: #d1d5db;
+    --cor-fundo-header: #1a1a1a;
+}
+
 * {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
-    text-decoration: none;
-    user-select: none;
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura */
+}
+
+html, body {
+    /* Otimizando o seletor universal */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
     padding: 0;
-  }
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    user-select: none;
+}
 
 body {
     min-height: 100vh;
     display: flex;
+    flex-direction: column; /* Alinha o cabeçalho no topo e o formulário no centro */
     align-items: center;
     justify-content: center;
 
- 
-}
-
-.escurecer {
-    min-height: 100vh;
-    display: flex;
-    width: 100%;
-    overflow: visible;
+    /* Imagem de Fundo */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/fundo.jpg"); /* Adiciona escurecimento com gradiente diretamente no fundo */
     background-size: cover;
-    color: black;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed; /* Opcional: mantém o fundo fixo ao rolar */
 }
 
-.principal {
-  position: absolute;
-  width: 100%;
-  max-width: 448px;
-  background-color: #323339;
-  border-radius: 12px;
-  padding: 32px;
-  display: flex;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+/* Remoção da div .escurecer (substituído pelo gradiente no body) */
+/* Se você precisar de uma div separada, use o .background-overlay no HTML */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Exemplo de overlay de escurecimento */
+    z-index: -1; /* Coloca atrás do conteúdo */
 }
 
-.titulo {
-  text-align: center;
-  margin-bottom: 24px;
-}
 
-.subtitulo{
-  opacity: 80%;
-  bottom: 10px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;  
-  width: 100%;
-  gap: 1px;
-}
-
-.button {
-  padding: 10px 0px;
-}
-
-.caixas {
-  position: relative;
-  bottom: 20px;
-}
-
-.caixas label {
-    font-size: 12px;
-    font-size: 12px; 
-    font-weight: 700;
-    color: #d1d5db;
-    text-transform: uppercase;
-    display: block;
-}
-
-.info {
-  padding: 15px 0px;
-  opacity: 80%;
-  font-weight: bold;
-  font-size: 75%;
-  position: relative;
-  bottom: -4px;
-} 
-
-.esqsenha {
-  position: relative;
-  bottom: 15px;
-  font-size: 14px;
-}
-
-.esqsenha:hover{
-  text-decoration: underline;
-}
-
-.registro{
-  text-align: center;
-  margin-top: 24px;
-  bottom: 20px;
-  opacity: 80%;
-  font-size: 13px;
-}   
-
-input {
-  background-color: #1e1f22;
-  border: 1px solid #3e3f44;
-  color: white;
-
-  outline: none;
-  width: 100%;
-  font-size: 16px;
-  border-radius: 6px;
-  padding: 8px;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-}
-
-input:focus {
-   border-color: #3b82f6;
-   box-shadow: 0 0 0 1px #3b82f6;
-}
-
-button {
-   display: block;
-  margin: 10px auto;
-  width: 200px;
-  padding: 10px 0;
-  border: none;
-  border-radius: 7px;
-  background-color: #9900ff9f;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 500;
-}
-button:hover{
-  opacity: 80%;
-  transition: 0.4s;
-}
-
-/* cabeçalho */
+/* --- Cabeçalho --- */
 
 .header {
+    width: 100%; /* Ocupa a largura total */
+    max-width: 1200px; /* Limite de largura para desktop */
+    margin: 0 auto; /* Centraliza o cabeçalho */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #1a1a1a;
-    padding: 15px;
+    background-color: var(--cor-fundo-header);
+    padding: 15px 32px; /* Aumentei um pouco o padding lateral para desktop */
     border-radius: 12px;
-    margin-bottom: 25px;
+    position: absolute; /* Fixa no topo para não interferir no body flex-center */
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
     font-size: 28px;
     font-weight: bold;
-    color: #b100ff;
+    color: var(--cor-primaria);
+    text-decoration: none;
 }
 
 .auth-buttons {
     display: flex;
-    gap: 10px;
+    gap: 15px;
 }
 
-.btn-register {
+.auth-buttons a {
+    text-decoration: none;
+    display: inline-block;
     padding: 8px 18px;
     border-radius: 8px;
     font-weight: 600;
-    background-color: #b100ff;
-    transition: 0.3s;
-    color: white;
+    transition: background-color 0.3s, opacity 0.3s;
+    color: var(--cor-texto-claro);
+}
+
+.btn-login {
+    /* Estilo para um botão de login/link discreto */
+    background-color: transparent;
+    border: 2px solid var(--cor-primaria);
+}
+
+.btn-login:hover {
+    background-color: rgba(177, 0, 255, 0.1);
+}
+
+
+.btn-register {
+    background-color: var(--cor-primaria);
 }
 
 .btn-register:hover {
-    background-color: #ca00ff;
+    background-color: var(--cor-primaria-hover);
+}
+
+/* --- Conteúdo Principal (Card do Formulário) --- */
+
+.principal {
+    /* Removido `position: absolute` e `width: 100%` desnecessários com o body centralizado */
+    /* width: 100%; -> Removido */
+    /* position: absolute; -> Removido */
+    max-width: 448px;
+    background-color: var(--cor-fundo-card);
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column; /* Organiza os filhos em coluna */
+    align-items: center; /* Centraliza o conteúdo (título, formulário) */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    margin: 100px 20px 20px 20px; /* Adiciona margem superior para o cabeçalho e laterais */
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 8px; /* Ajustei a margem para ficar mais perto do subtítulo */
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.subtitulo {
+    text-align: center;
+    opacity: 0.8;
+    margin-bottom: 24px; /* Adiciona espaçamento após o subtítulo e antes do formulário */
+    font-size: 14px;
+    color: var(--cor-texto-label);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px; /* Aumenta o espaçamento entre os grupos de input */
+}
+
+.form-group {
+    /* Novo seletor para agrupar label e input */
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--cor-texto-label);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+}
+
+input {
+    background-color: var(--cor-fundo-input);
+    border: 1px solid var(--cor-borda-input);
+    color: var(--cor-texto-claro);
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 6px;
+    padding: 10px 12px; /* Aumentei um pouco o padding interno */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 1px var(--cor-primaria);
+}
+
+/* --- Botão --- */
+
+.button {
+    /* Novo nome de classe para o botão do form para evitar conflito com .auth-buttons */
+    display: block;
+    width: 100%; /* Ocupa a largura total do card */
+    padding: 12px 0; /* Aumentei o padding */
+    margin: 20px 0 10px 0; /* Espaçamento superior e inferior */
+    border: none;
+    border-radius: 8px; /* Borda levemente maior */
+    background-color: var(--cor-primaria);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--cor-texto-claro);
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+/* --- Links de Suporte e Registro --- */
+
+.registro {
+    text-align: center;
+    margin-top: 15px; /* Ajustei a margem superior */
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.registro a {
+    color: var(--cor-primaria); /* Dá destaque ao link */
+    font-weight: 600;
+}
+
+.registro a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+/* Mensagens de feedback */
+.mensagem-sucesso {
+    color: #4ade80; /* Verde */
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.mensagem-erro {
+    color: #f87171; /* Vermelho */
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.button {
+    /* Novo nome de classe para o botão do form */
+    display: block;
+    width: 100%; /* Ocupa a largura total do card */
+    padding: 12px 0;
+    margin: 20px 0 10px 0;
+    border: none;
+    border-radius: 8px;
+    
+    /* Gradiente como Fundo Padrão */
+    background: linear-gradient(90deg, #9900ff 0%, #ca00ff 100%);
+    
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--cor-texto-claro);
+    
+    /* Transições suaves para todas as propriedades */
+    transition: all 0.3s ease; 
+}
+
+.button:hover {
+    /* Efeito Hover Aprimorado: Aumenta o brilho e adiciona uma sombra */
+    background: linear-gradient(90deg, #ca00ff 0%, #b100ff 100%); /* Inverte ou intensifica o gradiente */
+    transform: translateY(-2px); /* Faz o botão "subir" um pouco */
+    box-shadow: 0 8px 15px rgba(177, 0, 255, 0.4); /* Sombra roxa suave */
+}
+
+/* Opcional: Efeito quando o botão está sendo clicado */
+.button:active {
+    transform: translateY(0); /* Volta para a posição original */
+    box-shadow: none;
+    opacity: 0.9;
 }
