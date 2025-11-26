@@ -1,12 +1,15 @@
-import sqlite3
-from flask import Flask, render_template, request, redirect, url_for
+import sqlite3, os
+from flask import Flask, render_template, request, redirect, url_for, flash, g
 
 
 DATABASE = 'usuarios.db'
 
 app_id = locals().get('__app_id', 'default-app')
 
-app = Flask(__name__)
+app = Flask(__name__)# ...
+
+app.config['SECRET_KEY'] = '326cb9eea14a4e7d7987349969a05a625a5f689b704c15fcd675aef7a89bf7fa' 
+
 
 # --- Funções de Banco de Dados ---
 
@@ -20,63 +23,68 @@ def get_db_connection():
 
 @app.route('/')
 def index():
-    """Rota para a página inicial (index.html)."""
-    # Exibe o ID do aplicativo no console para fins de debug
-    print(f"App ID: {app_id}")
-    return render_template('index.html')
+  conn = get_db_connection()
+  try:
+        usuarios = conn.execute('SELECT id, nome, email FROM usuarios').fetchall()
+        return render_template('index.html', usuarios=usuarios)
 
-@app.route('/cconta', methods=['GET'])
-def cconta_page():
+  except Exception as e:
+        # Em caso de erro, mostre o erro no terminal e no flash
+        app.logger.error("Erro ao carregar INDEX:", e)
+        flash('Erro ao carregar usuários.', 'error')
+        return render_template('index.html', usuarios=[])
+
+  finally:
+        # É crucial fechar a conexão, mas o @app.teardown_appcontext já faz isso
+        pass
+
+
+@app.route('/create', methods=('GET', 'POST'))
+def cadastro():
+    # Bloco POST: Processa a submissão do formulário
+    if request.method == 'POST':
+        nome = request.form['nome']
+        email = request.form['email']
+        senha = request.form['senha']
+
+        if not nome or not email or not senha:
+            flash('⚠️ Todos os campos são obrigatórios!', 'warning')
+            return redirect(url_for('cadastro'))
+        
+        # AQUI usamos try/except para gerenciar erros do DB
+        try:
+            conn = get_db_connection()
+            conn.execute('INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)',
+                         (nome, email, senha))
+            conn.commit()
+            
+            flash(f'🎉 Conta para {nome} criada com sucesso!', 'success')
+            return redirect(url_for('index'))
+            
+        except sqlite3.IntegrityError:
+            flash('❌ Erro: O email fornecido já está em uso.', 'error')
+            return redirect(url_for('cadastro'))
+        except Exception as e:
+            app.logger.error("Erro ao inserir usuário:", e)
+            flash(f'❌ Erro interno ao cadastrar: {e}', 'error')
+            return redirect(url_for('cadastro'))
+
     return render_template('cconta.html')
 
-@app.route('/registrar', methods=['POST'])
-def registrar_usuario():
-    """Rota para processar o envio do formulário de criação de conta (via POST)."""
-    
-    # 1. Coleta os dados do formulário
-    nome = request.form.get('nome')
-    email = request.form.get('email')
-    senha = request.form.get('senha')
-    
-    # Validação básica
-    if not nome or not email or not senha:
-        return render_template('cconta.html', erro="Todos os campos são obrigatórios.")
 
-    conn = get_db_connection()
-    try:
-        # 2. Verifica se o email já existe
-        cursor = conn.execute('SELECT id FROM usuarios WHERE email = ?', (email,))
-        usuario_existente = cursor.fetchone()
-        
-        if usuario_existente:
-            # Se o usuário já existe, retorna um erro
-            return render_template('cconta.html', erro="Este email já está registrado. Tente outro.")
+@app.route('/test')
+def page_test():
+    return "<h1>A ROTA DE TESTE FUNCIONOU!</h1>"
 
-        # 3. Insere o novo usuário no banco de dados
-        # IMPORTANTE: Em uma aplicação real, a senha DEVE ser hasheada antes de ser salva (ex: com bcrypt).
-        # Aqui, estamos salvando a senha como texto simples apenas para fins de demonstração.
-        conn.execute('INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)',
-                     (nome, email, senha))
-        conn.commit()
-        
-        # 4. Redireciona o usuário para a página de criação de conta com uma mensagem de sucesso
-        # O argumento 'mensagem' será passado para o cconta.html via render_template
-        return render_template('cconta.html', mensagem=f"Conta criada com sucesso para: {nome}!")
-
-    except sqlite3.IntegrityError as e:
-        # Captura erros de integridade (como NOT NULL constraint)
-        print(f"Erro de integridade ao registrar: {e}")
-        return render_template('cconta.html', erro="Erro de banco de dados. Verifique os dados e tente novamente.")
-    except Exception as e:
-        # Captura outros erros
-        print(f"Erro inesperado: {e}")
-        return render_template('cconta.html', erro="Ocorreu um erro inesperado durante o registro.")
-    finally:
-        # Garante que a conexão com o banco de dados seja fechada
-        conn.close()
 
 # Bloco para rodar a aplicação Flask
 if __name__ == '__main__':
     # Rodar o Flask em modo debug (útil para desenvolvimento)
     # Host '0.0.0.0' permite acesso externo, e port 8080 é comum para testes
     app.run(host='0.0.0.0', port=8080, debug=True)
+
+
+@app.route('/entrar', methods=('GET', 'POST'))
+def login():
+
+    return render_template('login.html')

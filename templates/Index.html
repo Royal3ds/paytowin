@@ -18,8 +18,8 @@
         </nav>
 
         <div class="auth-buttons">
-            <a href="login.html" class="btn-login">Login</a>
-            <a href="/cconta">Cadastrar-se</a>
+            <a href="{{ url_for('login') }}" class="btn-login">Login</a>
+            <a href="{{ url_for('cadastro') }}" class="btn-register">Cadastrar-se</a>
         </div>
     </header>
 
@@ -65,7 +65,7 @@
         <section class="products-grid">
 
             <article class="product-card">
-                <img src="images/contaplatina.jpg" class="produto1">
+                <img src="static/images/contaplatina.jpg" class="produto1">
 
                 <h3 class="product-title">Conta Platina LoL</h3>
                 <p class="product-info">Jogo: League of Legends</p>
