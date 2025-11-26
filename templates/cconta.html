@@ -3,38 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Conta</title>
+    <title>PayToWin</title>
+    <link rel="stylesheet" href="static\css\criaconta.css">
 </head>
 <body>
+    <div class="escurecer"></div>
+    <div class="principal">
+        <h2>Crie sua Conta</h2>
 
-    <h2>Crie sua Conta</h2>
+    
+        <form method="POST" action="{{ url_for('cadastro') }}">
 
-    <form method="POST" action="{{ /create }}">
+            <div>
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+            </div>
 
-        <div>
-            <label for="nome">Nome Completo</label>
-            <input type="text" id="nome" name="nome" required placeholder="Seu nome">
-        </div>
+            <div>
+             <label for="email">E-MAIL</label>
+             <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+            </div>
 
-        <div>
-            <label for="email">E-MAIL</label>
-            <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
-        </div>
+            <div>
+             <label for="senha">SENHA</label>
+             <input type="password" id="senha" name="senha" required placeholder="Mínimo 6 caracteres">
+            </div>
 
-        <div>
-            <label for="senha">SENHA</label>
-            <input type="password" id="senha" name="senha" required placeholder="Mínimo 6 caracteres">
-        </div>
-
-        <button type="submit">Criar Conta</button>
+            <button type="submit">Criar Conta</button>
         
-    </form>
+        </form>
 
-       {% if mensagem %}
+          {% if mensagem %}
         <p style="color: green;">{{ mensagem }}</p>
-    {% endif %}
-    {% if erro %}
+        {% endif %}
+        {% if erro %}
         <p style="color: red;">{{ erro }}</p>
-    {% endif %}
+        {% endif %}
+    </div>
 </body>
 </html>

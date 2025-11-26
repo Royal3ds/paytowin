@@ -4,8 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PaytoWin</title>
-        <link rel="stylesheet" href="css/logincss.css">
-        <link rel="icon" href="images/favicon.png" type="image/png" sizes="64x64"> 
+        <link rel="stylesheet" href="static\css\logincss.css">
     </head>
 
 <body>
@@ -41,7 +40,7 @@
             </form>
 
             <div class="registro">
-                <p>Precisando de uma conta? <a href="cconta.html" style="color: #9900ff9f" class="ajuda">Registre-se</a></p> 
+                <p>Precisando de uma conta? <a href="{{ url_for('cadastro') }}" style="color: #9900ff9f" class="ajuda">Registre-se</a></p> 
             </div>
         </div>
     </div>
